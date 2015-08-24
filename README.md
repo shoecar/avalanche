@@ -1,2 +1,2 @@
-# snake
+# avalanche
 javascript web game
