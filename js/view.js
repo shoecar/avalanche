@@ -49,6 +49,7 @@
   };
 
   View.prototype.buildGrid = function () {
+    this.$el.append('<div id="score">0.00s</div>')
     for (var i = 0; i < this.gridHeight; i++) {
       var row = $('<div class="row">');
       for (var j = 0; j < this.gridWidth; j++) {
@@ -61,11 +62,16 @@
   };
 
   View.prototype.step = function () {
+    var score = parseFloat($('#score').text()) + 0.01;
+    $('#score').text(score.toFixed(2) + 's');
     if (this.board.player.alive) {
       this.board.cycle();
       this.render();
     } else {
+      $('#score').text('');
+      $('#final-score').text('You survived for ' + score.toFixed(2) + ' seconds')
       $('#game-over').fadeIn();
+      window.clearInterval(this.intervalId);
     }
   };
 })();

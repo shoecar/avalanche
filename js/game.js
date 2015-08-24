@@ -34,15 +34,6 @@
     "R": new Coord(0, 1)
   };
 
-  Player.prototype.isOccupying = function (array) {
-    var result = false;
-      if (segment.i === array[0] && segment.j === array[1]) {
-        result = true;
-        return result;
-      }
-    return result;
-  };
-
   Player.prototype.move = function (dir) {
     var tempPos = this.position.plus(Player.DIFFS[dir]);
     var i = this.board.loopPos(tempPos.i, this.board.gridHeight);
@@ -63,6 +54,9 @@
     this.iteration = 1;
     this.player = new Player(this);
     this.icicles = [];
+    window.setTimeout(function () {
+      this.startWave();
+    }.bind(this), 500)
   };
 
   Board.prototype.cycle = function () {
