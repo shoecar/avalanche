@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #9adde9;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#avalanche {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background: #f7f7f7 url("../images/snowpile.svg") no-repeat -10px 40px;
+  background-size: cover;
+}
+
+#game-over {
+  position: absolute;
+  width: 250px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  z-index: 3;
+  display: none;
+}
+
+#game-over h1 {
+  margin-bottom: 10px;
+  font-size: 40px;
+  /*color: #f7f7f7;*/
+  text-align: center;
+  font-weight: 600;
+}
+
+.row {
+  width: 100%;
+  height: 20px;
+}
+
+pre {
+  display: block;
+  float: left;
+  width: 20px;
+  height: 20px;
+}
+
+.player {
+  background: url("../images/skier.png");
+  background-size: contain;
+}
+
+.ice {
+  background: url("../images/snowball.png");
+  background-size: cover;
+}
