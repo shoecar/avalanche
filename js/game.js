@@ -81,14 +81,14 @@
   };
 
   Board.prototype.startWave = function () {
-    for (var i = 0; i < this.gridWidth; i++) {
-      this.icicles.push(new Ava.Ice(new Coord(0, i), Math.ceil(Math.random() * 100) + 50));
-    }
+    // for (var i = 0; i < this.gridWidth; i++) {
+    //   this.icicles.push(new Ava.Ice(new Coord(0, i), Math.ceil(Math.random() * 100) + 50));
+    // }
   };
 
   Board.prototype.loopPos = function (position, max) {
-    if (position < 0) { return max - 1; }
-    if (position >= max) { return 0; }
+    if (position < 0) { return 0; }
+    if (position >= max) { return max - 1; }
     return position;
   };
 })();

@@ -33,6 +33,7 @@
     } else {
       if (View.KEYS[event.keyCode]) {
         this.board.player.move(View.KEYS[event.keyCode]);
+        this.moveBG(View.KEYS[event.keyCode]);
       } else if (event.keyCode === 32 && this.board.player.alive) {
         window.clearInterval(this.intervalId);
         this.intervalId = null;
@@ -60,7 +61,7 @@
   };
 
   View.prototype.buildGrid = function () {
-    this.$el.append('<div id="score">0.00s</div>')
+    this.$el.append('<div id="score" data-score="0.000">0.00s</div>')
     for (var i = 0; i < this.gridHeight; i++) {
       var row = $('<div class="row">');
       for (var j = 0; j < this.gridWidth; j++) {
@@ -73,7 +74,8 @@
   };
 
   View.prototype.step = function () {
-    var score = parseFloat($('#score').text()) + 0.01;
+    var score = parseFloat($('#score').data('score')) + this.milliS / 1000;
+    $('#score').data('score', score.toFixed(3));
     $('#score').text(score.toFixed(2) + 's');
     if (this.board.player.alive) {
       this.board.cycle();
@@ -86,7 +88,34 @@
         $highScore.data('score', score).text(score.toFixed(2) + ' seconds');
       }
       $('#game-over').fadeIn();
+      $(window).unbind('keydown');
       window.clearInterval(this.intervalId);
+    }
+  };
+
+  View.prototype.moveBG = function (dir) {
+    if (dir === 'L') {
+      var pos1 = $('#avalanche').data('pos1') - 9;
+      var pos2 = $('#avalanche').data('pos2') - 20;
+      var pos3 = $('#avalanche').data('pos3') - 40;
+      if (pos1 < 10) { pos1 = 10; }
+      if (pos2 < 100) { pos2 = 100; }
+      if (pos3 < 200) { pos3 = 200; }
+      $('#avalanche').css('background-position', '-' + pos1 + 'px 400px, -' + pos2 + 'px 200px, -' + pos3 + 'px 0px');
+      $('#avalanche').data('pos1', pos1);
+      $('#avalanche').data('pos2', pos2);
+      $('#avalanche').data('pos3', pos3);
+    } else {
+      var pos1 = $('#avalanche').data('pos1') + 9;
+      var pos2 = $('#avalanche').data('pos2') + 20;
+      var pos3 = $('#avalanche').data('pos3') + 40;
+      if (pos1 > 172) { pos1 = 172; }
+      if (pos2 > 460) { pos2 = 460; }
+      if (pos3 > 920) { pos3 = 920; }
+      $('#avalanche').css('background-position', '-' + pos1 + 'px 400px, -' + pos2 + 'px 200px, -' + pos3 + 'px 0px')
+      $('#avalanche').data('pos1', pos1);
+      $('#avalanche').data('pos2', pos2);
+      $('#avalanche').data('pos3', pos3);
     }
   };
 })();

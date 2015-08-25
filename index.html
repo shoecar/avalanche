@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Avalanche</title>
     <link rel="icon" type="image/png" href="images/snowball.png">
-    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'> -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="scss/reset.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="scss/styles.css" media="screen" charset="utf-8">
   </head>
@@ -12,10 +12,10 @@
     <div id="game-over">
       <h1>Game Over</h1>
       <p id="final-score"></p>
-      <button type="button" class="start-game">Restart</button>
+      <button type="button" class="start-game">Try Again</button>
     </div>
 
-    <div id="avalanche">
+    <div id="avalanche" data-pos1="100" data-pos2="300" data-pos3="600">
       <button type="button" class="start-game">Play</button>
     </div>
 
@@ -49,6 +49,10 @@
     <script type="text/javascript">
       $('.start-game').click(function () {
         $('#game-over').css('display','');
+        $('#avalanche').css('background-position', '-100px 400px, -300px 200px, -600px 0px');
+        $('#avalanche').data('pos1', 100);
+        $('#avalanche').data('pos2', 300);
+        $('#avalanche').data('pos3', 600);
         var $el = $('#avalanche');
         $el.html('');
         var view = new Ava.View($el, milliS);
