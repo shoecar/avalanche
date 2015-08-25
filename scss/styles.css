@@ -39,9 +39,9 @@ button:hover { background-color: #829DBA; }
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  background: url("../images/hill-1.png") no-repeat -100px 400px,
-              url("../images/hill-2.png") no-repeat -300px 200px,
-              url("../images/hill-3.png") no-repeat -600px 0px;
+  background: url("../images/hill-3.png") no-repeat -600px 450px,
+              url("../images/hill-2.png") no-repeat -300px 300px,
+              url("../images/hill-1.png") no-repeat -100px 0px;
 
               -webkit-transition: all 1.0s ease-out;
                  -moz-transition: all 1.0s ease-out;
