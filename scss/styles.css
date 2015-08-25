@@ -15,6 +15,23 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+button {
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+  color: #f7f7f7;
+  background-color: #A0BBD8;
+  font-size: 14px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
+  margin: 5px 0;
+}
+button:hover { background-color: #829DBA; }
+
+.active { background-color: #829DBA; }
+
 #avalanche {
   width: 600px;
   height: 600px;
@@ -26,6 +43,20 @@ body {
   background-size: cover;
 }
 
+#avalanche button {
+  position: relative;
+  width: 20%;
+  height: 8%;
+  font-size: 20px;
+  top: 46%;
+  left: 40%;
+  -webkit-animation: size_toggle 0.6s infinite alternate ease-out;
+  -moz-animation: size_toggle 0.6s infinite alternate ease-out;
+  -ms-animation: size_toggle 0.6s infinite alternate ease-out;
+  -o-animation: size_toggle 0.6s infinite alternate ease-out;
+  animation: size_toggle 0.6s infinite alternate ease-out;
+}
+
 #score {
   position: absolute;
   font-size: 18px;
@@ -35,7 +66,7 @@ body {
 
 #info {
   position: absolute;
-  height: 600px;
+  height: 550px;
   width: 150px;
   top: 50%;
   left: 50%;
@@ -51,15 +82,10 @@ body {
   font-weight: 300;
 }
 
-hr { color: #333; }
+hr { color: #666; }
 
-#info li {
-  padding: 5px;
-}
-
-#info p {
+#info {
   text-align: center;
-  margin: 10px 0 5px -30px;
   font-weight: 300;
 }
 
@@ -72,19 +98,15 @@ hr { color: #333; }
   top: -15px;
 }
 
-.control-wrap {
-  margin-left: 30px;
-}
-
 #game-over {
   position: absolute;
   width: 250px;
-  height: 127px;
+  height: 170px;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   background-color: #f7f7f7;
-  padding: 10px;
+  padding: 20px;
   z-index: 3;
   display: none;
   -webkit-box-shadow: 0px 0px 35px -10px rgba(0,0,0,0.75);
@@ -93,6 +115,7 @@ hr { color: #333; }
 }
 
 #game-over h1 {
+  margin-top: 15px;
   font-size: 30px;
   text-align: center;
   font-weight: 400;
@@ -106,16 +129,8 @@ hr { color: #333; }
 }
 
 #game-over button {
-  width: 100px;
-  margin-left: 64px;
-  height: 30px;
-  cursor: pointer;
-  color: #f7f7f7;
-  background-color: #2B547E;
-  font-size: 14px;
+  margin-left: 52px;
 }
-
-#game-over button:hover { background-color: #737CA1; }
 
 .row {
   width: 100%;
@@ -137,4 +152,66 @@ pre {
 .ice {
   background: url("../images/snowball.png");
   background-size: cover;
+}
+
+@-webkit-keyframes size_toggle {
+ from {  -webkit-transform: scale(1.0);
+         -moz-transform:    scale(1.0);
+         -ms-transform:     scale(1.0);
+         -o-transform:      scale(1.0);
+         transform:         scale(1.0); }
+ to {    -webkit-transform: scale(1.1);
+         -moz-transform:    scale(1.1);
+         -ms-transform:     scale(1.1);
+         -o-transform:      scale(1.1);
+         transform:         scale(1.1); }
+}
+@-moz-keyframes size_toggle {
+  from {  -webkit-transform: scale(1.0);
+          -moz-transform:    scale(1.0);
+          -ms-transform:     scale(1.0);
+          -o-transform:      scale(1.0);
+          transform:         scale(1.0); }
+  to {    -webkit-transform: scale(1.1);
+          -moz-transform:    scale(1.1);
+          -ms-transform:     scale(1.1);
+          -o-transform:      scale(1.1);
+          transform:         scale(1.1); }
+}
+@-ms-keyframes size_toggle {
+  from {  -webkit-transform: scale(1.0);
+          -moz-transform:    scale(1.0);
+          -ms-transform:     scale(1.0);
+          -o-transform:      scale(1.0);
+          transform:         scale(1.0); }
+  to {    -webkit-transform: scale(1.1);
+          -moz-transform:    scale(1.1);
+          -ms-transform:     scale(1.1);
+          -o-transform:      scale(1.1);
+          transform:         scale(1.1); }
+}
+@-o-keyframes size_toggle {
+  from {  -webkit-transform: scale(1.0);
+          -moz-transform:    scale(1.0);
+          -ms-transform:     scale(1.0);
+          -o-transform:      scale(1.0);
+          transform:         scale(1.0); }
+  to {    -webkit-transform: scale(1.1);
+          -moz-transform:    scale(1.1);
+          -ms-transform:     scale(1.1);
+          -o-transform:      scale(1.1);
+          transform:         scale(1.1); }
+}
+@keyframes size_toggle {
+  from {  -webkit-transform: scale(1.0);
+          -moz-transform:    scale(1.0);
+          -ms-transform:     scale(1.0);
+          -o-transform:      scale(1.0);
+          transform:         scale(1.0); }
+  to {    -webkit-transform: scale(1.1);
+          -moz-transform:    scale(1.1);
+          -ms-transform:     scale(1.1);
+          -o-transform:      scale(1.1);
+          transform:         scale(1.1); }
+  }
 }

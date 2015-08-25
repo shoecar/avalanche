@@ -12,26 +12,23 @@
     <div id="game-over">
       <h1>Game Over</h1>
       <p id="final-score"></p>
-      <button type="button" id="play-again">Play Again</button>
+      <button type="button" class="start-game">Restart</button>
     </div>
 
-    <div id="avalanche"></div>
+    <div id="avalanche">
+      <button type="button" class="start-game">Play</button>
+    </div>
 
     <div id="info">
-      <h1>High Scores</h1>
+      <h1>Speed</h1>
       <hr>
-      <ul>
-        <li>1.</li>
-        <li>2.</li>
-        <li>3.</li>
-        <li>4.</li>
-        <li>5.</li>
-        <li>6.</li>
-        <li>7.</li>
-        <li>8.</li>
-        <li>9.</li>
-        <li>10.</li>
-      </ul>
+      <button type="button" id="play-slow">Slow</button>
+      <button type="button" id="play-medium" class="active">Medium</button>
+      <button type="button" id="play-fast">Fast</button>
+
+      <h1>High Score</h1>
+      <hr>
+      <p id="high-score" data-score="0">0.00 seconds</p>
 
       <h1>Controls</h1>
       <hr>
@@ -48,25 +45,42 @@
     <script src="js/view.js"></script>
 
     <script type="text/javascript">
-      $(function () {
-        startGame();
-      });
+      var milliS = 10;
 
-      var startGame = function () {
+      $('.start-game').click(function () {
+        $('#game-over').css('display','');
         var $el = $('#avalanche');
         $el.html('');
-        var height = 20;
-        var width = 20;
-        var speed = 200;
-        var view = new Ava.View($el, height, width, speed);
-      };
-
-      $('#play-again').click(function (e) {
-        e.preventDefault();
-        e.currentTarget.blur();
-        startGame();
-        $('#game-over').css('display','');
+        var view = new Ava.View($el, milliS);
       });
+
+      $('#play-slow').click(function (e) {
+        e.preventDefault();
+        removeActive();
+        e.currentTarget.blur();
+        $(e.currentTarget).addClass('active');
+        milliS = 20;
+      });
+
+      $('#play-medium').click(function (e) {
+        e.preventDefault();
+        removeActive();
+        e.currentTarget.blur();
+        $(e.currentTarget).addClass('active')
+        milliS = 10;
+      });
+
+      $('#play-fast').click(function (e) {
+        e.preventDefault();
+        removeActive();
+        e.currentTarget.blur();
+        $(e.currentTarget).addClass('active');
+        milliS = 5;
+      });
+
+      var removeActive = function () {
+        $('button').removeClass('active');
+      };
     </script>
   </body>
 </html>

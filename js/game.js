@@ -41,15 +41,16 @@
     this.position = new Coord(i, j);
   };
 
-  var Ice = Ava.Ice = function (position, speed) {
+  var Ice = Ava.Ice = function (position, waveTime) {
     this.position = position;
-    this.speed = speed;
+    this.waveTime = waveTime;
     this.dropPoint = 0;
   };
 
-  var Board = Ava.Board = function (gridHeight, gridWidth, speed) {
+  var Board = Ava.Board = function (gridHeight, gridWidth, waveTime, speed) {
     this.gridHeight = gridHeight;
     this.gridWidth = gridWidth;
+    this.waveTime = waveTime;
     this.speed = speed;
     this.iteration = 1;
     this.player = new Player(this);
@@ -61,8 +62,8 @@
 
   Board.prototype.cycle = function () {
     this.icicles.forEach(function (ice) {
-      ice.dropPoint += ice.speed;
-      if (ice.dropPoint > 700) {
+      ice.dropPoint += ice.waveTime;
+      if (ice.dropPoint > this.speed) {
         ice.dropPoint = 0;
         ice.position.i++;
         if (ice.position.equals(this.player.position)) {
@@ -72,7 +73,7 @@
     }.bind(this));
 
     this.iteration++;
-    if (this.iteration % this.speed === 0) {
+    if (this.iteration % this.waveTime === 0) {
       this.startWave();
     }
   };

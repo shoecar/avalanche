@@ -3,20 +3,21 @@
     window.Ava = {};
   }
 
-  var View = Ava.View = function ($el, gridHeight, gridWidth, speed) {
+  var View = Ava.View = function ($el, milliS) {
     this.$el = $el;
-    this.gridHeight = gridHeight;
-    this.gridWidth = gridWidth;
-    this.speed = speed;
-    this.board = new Ava.Board(gridHeight, gridWidth, speed);
+    this.gridHeight = 20;
+    this.gridWidth = 20;
+    this.waveTime = 200;
+    this.speed = 700;
+    this.board = new Ava.Board(this.gridHeight, this.gridWidth, this.waveTime, this.speed);
     this.buildGrid();
+
+    $(window).on("keydown", this.handleKeyEvent.bind(this));
 
     this.intervalId = window.setInterval(
       this.step.bind(this),
-      View.STEP_MILLIS
+      milliS
     );
-
-    $(window).on("keydown", this.handleKeyEvent.bind(this));
   }
 
   View.KEYS = {
@@ -25,8 +26,6 @@
     39: 'R',
     68: 'R'
   };
-
-  View.STEP_MILLIS = 10;
 
   View.prototype.handleKeyEvent = function (event) {
     if (View.KEYS[event.keyCode]) {
@@ -68,8 +67,12 @@
       this.board.cycle();
       this.render();
     } else {
+      var $highScore = $('#high-score');
       $('#score').text('');
       $('#final-score').text('You survived for ' + score.toFixed(2) + ' seconds')
+      if (score > parseFloat($highScore.data('score'))) {
+        $highScore.data('score', score).text(score.toFixed(2) + ' seconds');
+      }
       $('#game-over').fadeIn();
       window.clearInterval(this.intervalId);
     }
