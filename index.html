@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Avalanche</title>
     <link rel="icon" type="image/png" href="images/snowball.png">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="scss/reset.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="scss/styles.css" media="screen" charset="utf-8">
   </head>
@@ -37,22 +37,24 @@
         <img src="images/arrow-left-key.png"> <span>/</span> <img src="images/a-key.png">
         <p>move right</p>
         <img src="images/arrow-right-key.png"> <span>/</span> <img src="images/d-key.png">
+        <p>pause</p>
+        <img src="images/spacebar.png" class="spacebar"> <span>
       </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
     <script src="js/game.js"></script>
     <script src="js/view.js"></script>
 
     <script type="text/javascript">
-      var milliS = 10;
-
       $('.start-game').click(function () {
         $('#game-over').css('display','');
         var $el = $('#avalanche');
         $el.html('');
         var view = new Ava.View($el, milliS);
       });
+
+      var milliS = 10;
 
       $('#play-slow').click(function (e) {
         e.preventDefault();

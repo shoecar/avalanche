@@ -5,6 +5,7 @@
 
   var View = Ava.View = function ($el, milliS) {
     this.$el = $el;
+    this.milliS = milliS;
     this.gridHeight = 20;
     this.gridWidth = 20;
     this.waveTime = 200;
@@ -12,12 +13,9 @@
     this.board = new Ava.Board(this.gridHeight, this.gridWidth, this.waveTime, this.speed);
     this.buildGrid();
 
-    $(window).on("keydown", this.handleKeyEvent.bind(this));
+    $(window).bind('keydown', this.handleKeyEvent.bind(this));
 
-    this.intervalId = window.setInterval(
-      this.step.bind(this),
-      milliS
-    );
+    this.intervalId = window.setInterval(this.step.bind(this), this.milliS);
   }
 
   View.KEYS = {
@@ -28,22 +26,36 @@
   };
 
   View.prototype.handleKeyEvent = function (event) {
-    if (View.KEYS[event.keyCode]) {
-      this.board.player.move(View.KEYS[event.keyCode]);
+    if (!this.intervalId) {
+      this.board.player.alive = true;
+      this.$el.find('.paused').remove();
+      this.intervalId = window.setInterval(this.step.bind(this), this.milliS);
+    } else {
+      if (View.KEYS[event.keyCode]) {
+        this.board.player.move(View.KEYS[event.keyCode]);
+      } else if (event.keyCode === 32 && this.board.player.alive) {
+        window.clearInterval(this.intervalId);
+        this.intervalId = null;
+        this.$el.prepend('<div class="paused">Game Paused</div>')
+      }
     }
+
   };
 
   View.prototype.render = function () {
-    this.updateClasses([this.board.player], "player");
-    this.updateClasses(this.board.icicles, "ice");
+    var faceLeft = this.board.player.faceLeft ? 'left' : null;
+    this.updateClasses([this.board.player], 'player', faceLeft);
+    this.updateClasses(this.board.icicles, 'ice');
   };
 
-  View.prototype.updateClasses = function(collection, className) {
+  View.prototype.updateClasses = function(collection, className, faceLeft) {
     this.$cells.filter("." + className).removeClass();
+    faceLeft && this.$cells.filter(".left").removeClass();
 
     collection.forEach(function(model){
       var flatCoord = (model.position.i * this.gridHeight) + model.position.j;
       this.$cells.eq(flatCoord).addClass(className);
+      faceLeft && this.$cells.eq(flatCoord).addClass('left');
     }.bind(this));
   };
 

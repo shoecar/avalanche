@@ -24,6 +24,7 @@
   };
 
   var Player = Ava.Player = function (board) {
+    this.faceLeft = true;
     this.alive = true;
     this.board = board;
     this.position = new Coord(board.gridHeight - 1, Math.floor(board.gridWidth / 2));
@@ -35,6 +36,7 @@
   };
 
   Player.prototype.move = function (dir) {
+    this.faceLeft = dir === "L";
     var tempPos = this.position.plus(Player.DIFFS[dir]);
     var i = this.board.loopPos(tempPos.i, this.board.gridHeight);
     var j = this.board.loopPos(tempPos.j, this.board.gridWidth);
