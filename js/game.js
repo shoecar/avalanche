@@ -81,9 +81,9 @@
   };
 
   Board.prototype.startWave = function () {
-    // for (var i = 0; i < this.gridWidth; i++) {
-    //   this.icicles.push(new Ava.Ice(new Coord(0, i), Math.ceil(Math.random() * 100) + 50));
-    // }
+    for (var i = 0; i < this.gridWidth; i++) {
+      this.icicles.push(new Ava.Ice(new Coord(0, i), Math.ceil(Math.random() * 100) + 50));
+    }
   };
 
   Board.prototype.loopPos = function (position, max) {
