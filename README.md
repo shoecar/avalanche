@@ -1,8 +1,9 @@
 # Avalanche
 Control a skier in his attempt to escape endless waves of snowballs!
 
-[Play Avalanche][live-link]
-[live-link]: http://shoecar.github.io/avalanche
+<a href="http://shoecar.github.io/avalanche">
+  <img src="images/example.gif" width="300">
+</a>
 
 <b>Features</b>
 - Three speed settings for varied difficulty
