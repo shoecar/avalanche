@@ -135,6 +135,9 @@ hr { background-color: #829DBA; height: 1px; border: none;}
 =======
   transform: translateY(-50%) translateX(-50%);
   background-color: rgba(255, 255, 255, 0.8);
+<<<<<<< HEAD
+>>>>>>> 5ff51efa03f56ae45825bbb4e42bb17914a2fd09
+=======
 >>>>>>> 5ff51efa03f56ae45825bbb4e42bb17914a2fd09
   color: #829DBA;
   font-weight: 600;
@@ -148,7 +151,10 @@ hr { background-color: #829DBA; height: 1px; border: none;}
   font-size: 30px;
   text-align: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
   font-weight: 400;
+=======
+>>>>>>> 5ff51efa03f56ae45825bbb4e42bb17914a2fd09
 =======
 >>>>>>> 5ff51efa03f56ae45825bbb4e42bb17914a2fd09
 }
