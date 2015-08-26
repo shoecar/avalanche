@@ -38,7 +38,11 @@ button:hover { background-color: #829DBA; }
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform:    translateX(-50%) translateY(-50%);
+  -ms-transform:     translateX(-50%) translateY(-50%);
+  -o-transform:      translateX(-50%) translateY(-50%);
+  transform:         translateX(-50%) translateY(-50%);
   background: url("../images/hill-3.png") no-repeat -600px 450px,
               url("../images/hill-2.png") no-repeat -300px 300px,
               url("../images/hill-1.png") no-repeat -100px 0px;
@@ -76,7 +80,11 @@ button:hover { background-color: #829DBA; }
   width: 150px;
   top: 50%;
   left: 50%;
-  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform:    translateX(-50%) translateY(-50%);
+  -ms-transform:     translateX(-50%) translateY(-50%);
+  -o-transform:      translateX(-50%) translateY(-50%);
+  transform:         translateX(-50%) translateY(-50%);
   margin-left: 400px;
   font-size: 16px;
 }
@@ -116,7 +124,11 @@ hr { color: #666; }
   height: 170px;
   top: 50%;
   left: 50%;
-  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform:    translateX(-50%) translateY(-50%);
+  -ms-transform:     translateX(-50%) translateY(-50%);
+  -o-transform:      translateX(-50%) translateY(-50%);
+  transform:         translateX(-50%) translateY(-50%);
   background-color: rgba(255, 255, 255, 0.8);
   color: #829DBA;
   font-weight: 600;

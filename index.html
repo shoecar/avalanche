@@ -50,7 +50,7 @@
     <script type="text/javascript">
       $(function () {
         var hsC = new Ava.Cookie();
-        var highScore = hsC.scoreCookie.read();
+        var highScore = hsC.read();
         if (highScore) { $('#high-score').text(highScore + ' seconds'); }
       });
 
