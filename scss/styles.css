@@ -12,7 +12,8 @@ body {
   height: 100%;
   position: relative;
   background: url("../images/ice.png") no-repeat 0 0, url("../images/ice-right.png") no-repeat right 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Amaranth', sans-serif;
+  color: #829DBA;
 }
 
 button {
@@ -96,7 +97,7 @@ button:hover { background-color: #829DBA; }
   font-weight: 300;
 }
 
-hr { color: #666; }
+hr { background-color: #829DBA; height: 1px; border: none;}
 
 #info {
   text-align: center;
@@ -129,15 +130,12 @@ hr { color: #666; }
   -ms-transform:     translateX(-50%) translateY(-50%);
   -o-transform:      translateX(-50%) translateY(-50%);
   transform:         translateX(-50%) translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(210, 235, 249, 0.80);
   color: #829DBA;
   font-weight: 600;
   padding: 20px;
   z-index: 3;
   display: none;
-  -webkit-box-shadow: 0px 0px 35px -10px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 35px -10px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 35px -10px rgba(0,0,0,0.75);
 }
 
 #game-over h1 {
