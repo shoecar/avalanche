@@ -16,10 +16,8 @@
     $(window).bind('keydown', this.handleKeyEvent.bind(this));
 
     this.intervalId = window.setInterval(this.step.bind(this), this.milliS);
-    
+
     this.scoreCookie = new Ava.Cookie();
-    var highScore = this.scoreCookie.read();
-    if (highScore) { $('#high-score').text(highScore + ' seconds'); }
   }
 
   View.KEYS = {

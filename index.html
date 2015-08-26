@@ -48,6 +48,12 @@
     <script src="js/view.js"></script>
 
     <script type="text/javascript">
+      $(function{
+        var hsC = new Ava.Cookie();
+        var highScore = hsC.scoreCookie.read();
+        if (highScore) { $('#high-score').text(highScore + ' seconds'); }
+      });
+
       $('.start-game').click(function () {
         $('#game-over').css('display','');
         $('#avalanche').css('background-position', '-600px 450px, -300px 300px, -100px 0px');

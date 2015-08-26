@@ -7,7 +7,7 @@
 
   cookie.prototype.create= function (value) {
       var date = new Date();
-      date.setTime(date.getTime()+(365*24*60*60*1000));
+      date.setTime(date.getTime()+(30*24*60*60*1000));
       var expires = "; expires="+date.toGMTString();
       document.cookie = 'high-score=' + value + expires + '; path=/';
   };
