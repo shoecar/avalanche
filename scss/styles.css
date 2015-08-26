@@ -125,12 +125,17 @@ hr { background-color: #829DBA; height: 1px; border: none;}
   height: 170px;
   top: 50%;
   left: 50%;
+<<<<<<< HEAD
   -webkit-transform: translateX(-50%) translateY(-50%);
   -moz-transform:    translateX(-50%) translateY(-50%);
   -ms-transform:     translateX(-50%) translateY(-50%);
   -o-transform:      translateX(-50%) translateY(-50%);
   transform:         translateX(-50%) translateY(-50%);
   background-color: rgba(210, 235, 249, 0.80);
+=======
+  transform: translateY(-50%) translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+>>>>>>> 5ff51efa03f56ae45825bbb4e42bb17914a2fd09
   color: #829DBA;
   font-weight: 600;
   padding: 20px;
@@ -142,7 +147,10 @@ hr { background-color: #829DBA; height: 1px; border: none;}
   margin-top: 15px;
   font-size: 30px;
   text-align: center;
+<<<<<<< HEAD
   font-weight: 400;
+=======
+>>>>>>> 5ff51efa03f56ae45825bbb4e42bb17914a2fd09
 }
 
 #final-score {
