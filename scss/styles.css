@@ -117,7 +117,9 @@ hr { color: #666; }
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #829DBA;
+  font-weight: 600;
   padding: 20px;
   z-index: 3;
   display: none;
@@ -173,6 +175,7 @@ pre {
   background: url("../images/skier.png");
   background-size: contain;
   z-index: 6;
+  margin-top: -5px;
 }
 
 .ice {
