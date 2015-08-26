@@ -123,7 +123,7 @@
     if (this.milliS === 20) { speed = 'slow'; }
     if (this.milliS === 5) { speed = 'fast'; }
     if (score > this.scoreCookie.read(speed)) {
-      this.scoreCookie.create(speed, score);
+      this.scoreCookie.create(speed, score.toFixed(2));
       $('#high-score').text(score.toFixed(2) + ' seconds');
     }
   };
