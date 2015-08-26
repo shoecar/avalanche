@@ -16,6 +16,10 @@
     $(window).bind('keydown', this.handleKeyEvent.bind(this));
 
     this.intervalId = window.setInterval(this.step.bind(this), this.milliS);
+    
+    this.scoreCookie = new Ava.Cookie();
+    var highScore = this.scoreCookie.read();
+    if (highScore) { $('#high-score').text(highScore + ' seconds'); }
   }
 
   View.KEYS = {
@@ -81,12 +85,9 @@
       this.board.cycle();
       this.render();
     } else {
-      var $highScore = $('#high-score');
       $('#score').text('');
       $('#final-score').text('You survived for ' + score.toFixed(2) + ' seconds')
-      if (score > parseFloat($highScore.data('score'))) {
-        $highScore.data('score', score).text(score.toFixed(2) + ' seconds');
-      }
+      this.setHighScore(score);
       $('#game-over').fadeIn();
       $(window).unbind('keydown');
       window.clearInterval(this.intervalId);
@@ -116,6 +117,13 @@
       $('#avalanche').data('pos1', pos1);
       $('#avalanche').data('pos2', pos2);
       $('#avalanche').data('pos3', pos3);
+    }
+  };
+
+  View.prototype.setHighScore = function (score) {
+    if (score > this.scoreCookie.read()) {
+      this.scoreCookie.create(score);
+      $('#high-score').text(score.toFixed(2) + ' seconds');
     }
   };
 })();
