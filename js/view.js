@@ -56,7 +56,7 @@
     faceLeft && this.$cells.filter(".left").removeClass();
 
     collection.forEach(function(model){
-      var flatCoord = (model.position.i * this.gridHeight) + model.position.j;
+      var flatCoord = (model.position.i * this.gridWidth) + model.position.j;
       this.$cells.eq(flatCoord).addClass(className);
       faceLeft && this.$cells.eq(flatCoord).addClass('left');
     }.bind(this));
@@ -119,8 +119,8 @@
   };
 
   View.prototype.setHighScore = function (score) {
-    if (score > this.scoreCookie.read()) {
-      this.scoreCookie.create(score);
+    if (score > this.scoreCookie.read(this.milliS)) {
+      this.scoreCookie.create(this.milliS, score);
       $('#high-score').text(score.toFixed(2) + ' seconds');
     }
   };

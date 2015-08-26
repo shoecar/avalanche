@@ -48,10 +48,18 @@
     <script src="js/view.js"></script>
 
     <script type="text/javascript">
-      $(function () {
+      var setHS = function (speed) {
         var hsC = new Ava.Cookie();
-        var highScore = hsC.read();
-        if (highScore) { $('#high-score').text(highScore + ' seconds'); }
+        var highScore = hsC.read(speed);
+        if (highScore) {
+          $('#high-score').text(highScore + ' seconds');
+        } else {
+          $('#high-score').text('0.00 seconds');
+        }
+      };
+
+      $(function () {
+        setHS(10);
       });
 
       $('.start-game').click(function () {
@@ -73,6 +81,7 @@
         e.currentTarget.blur();
         $(e.currentTarget).addClass('active');
         milliS = 20;
+        setHS(20);
       });
 
       $('#play-medium').click(function (e) {
@@ -81,6 +90,7 @@
         e.currentTarget.blur();
         $(e.currentTarget).addClass('active')
         milliS = 10;
+        setHS(10);
       });
 
       $('#play-fast').click(function (e) {
@@ -89,6 +99,7 @@
         e.currentTarget.blur();
         $(e.currentTarget).addClass('active');
         milliS = 5;
+        setHS(5);
       });
 
       var removeActive = function () {
