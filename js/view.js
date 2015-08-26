@@ -119,8 +119,11 @@
   };
 
   View.prototype.setHighScore = function (score) {
-    if (score > this.scoreCookie.read(this.milliS)) {
-      this.scoreCookie.create(this.milliS, score);
+    var speed = 'medium';
+    if (this.milliS === 20) { speed = 'slow'; }
+    if (this.milliS === 5) { speed = 'fast'; }
+    if (score > this.scoreCookie.read(speed)) {
+      this.scoreCookie.create(speed, score);
       $('#high-score').text(score.toFixed(2) + ' seconds');
     }
   };

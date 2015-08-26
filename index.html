@@ -51,6 +51,7 @@
       var setHS = function (speed) {
         var hsC = new Ava.Cookie();
         var highScore = hsC.read(speed);
+        debugger
         if (highScore) {
           $('#high-score').text(highScore + ' seconds');
         } else {
@@ -59,7 +60,7 @@
       };
 
       $(function () {
-        setHS(10);
+        setHS('medium');
       });
 
       $('.start-game').click(function () {
@@ -81,7 +82,7 @@
         e.currentTarget.blur();
         $(e.currentTarget).addClass('active');
         milliS = 20;
-        setHS(20);
+        setHS('slow');
       });
 
       $('#play-medium').click(function (e) {
@@ -90,7 +91,7 @@
         e.currentTarget.blur();
         $(e.currentTarget).addClass('active')
         milliS = 10;
-        setHS(10);
+        setHS('medium');
       });
 
       $('#play-fast').click(function (e) {
@@ -99,7 +100,7 @@
         e.currentTarget.blur();
         $(e.currentTarget).addClass('active');
         milliS = 5;
-        setHS(5);
+        setHS('fast');
       });
 
       var removeActive = function () {

@@ -17,10 +17,10 @@
       for (var i = 0; i < ca.length; i++) {
           var c = ca[i];
           while (c.charAt(0) === ' ') {
-            c = c.substring(1,c.length);
+            c = c.substring(1, c.length);
           }
           if (c.indexOf('high-score-' + speed + '=') == 0) {
-            return c.substring('high-score-' + speed + '='.length,c.length);
+            return c.substring('high-score-' + speed + '='.length, c.length);
           }
       }
       return null;
