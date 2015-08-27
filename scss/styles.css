@@ -44,9 +44,9 @@ button:hover { background-color: #829DBA; }
   -ms-transform:     translateX(-50%) translateY(-50%);
   -o-transform:      translateX(-50%) translateY(-50%);
   transform:         translateX(-50%) translateY(-50%);
-  background: url("../images/hill-3.png") no-repeat -600px 450px,
-              url("../images/hill-2.png") no-repeat -300px 300px,
-              url("../images/hill-1.png") no-repeat -100px 0px;
+  background: url("../images/hill-3.png") repeat-x -3600px 450px,
+              url("../images/hill-2.png") repeat-x -3300px 270px,
+              url("../images/hill-1.png") repeat-x -3100px 0px;
 
               -webkit-transition: all 1.0s ease-out;
                  -moz-transition: all 1.0s ease-out;
@@ -125,20 +125,12 @@ hr { background-color: #829DBA; height: 1px; border: none;}
   height: 170px;
   top: 50%;
   left: 50%;
-<<<<<<< HEAD
   -webkit-transform: translateX(-50%) translateY(-50%);
   -moz-transform:    translateX(-50%) translateY(-50%);
   -ms-transform:     translateX(-50%) translateY(-50%);
   -o-transform:      translateX(-50%) translateY(-50%);
   transform:         translateX(-50%) translateY(-50%);
   background-color: rgba(210, 235, 249, 0.80);
-=======
-  transform: translateY(-50%) translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.8);
-<<<<<<< HEAD
->>>>>>> 5ff51efa03f56ae45825bbb4e42bb17914a2fd09
-=======
->>>>>>> 5ff51efa03f56ae45825bbb4e42bb17914a2fd09
   color: #829DBA;
   font-weight: 600;
   padding: 20px;
@@ -150,13 +142,7 @@ hr { background-color: #829DBA; height: 1px; border: none;}
   margin-top: 15px;
   font-size: 30px;
   text-align: center;
-<<<<<<< HEAD
-<<<<<<< HEAD
   font-weight: 400;
-=======
->>>>>>> 5ff51efa03f56ae45825bbb4e42bb17914a2fd09
-=======
->>>>>>> 5ff51efa03f56ae45825bbb4e42bb17914a2fd09
 }
 
 #final-score {

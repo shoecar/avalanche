@@ -87,8 +87,8 @@
   };
 
   Board.prototype.loopPos = function (position, max) {
-    if (position < 0) { return 0; }
-    if (position >= max) { return max - 1; }
+    if (position < 0) { return max - 1; }
+    if (position >= max) { return 0; }
     return position;
   };
 })();

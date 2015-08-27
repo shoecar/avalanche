@@ -64,10 +64,10 @@
 
       $('.start-game').click(function () {
         $('#game-over').css('display','');
-        $('#avalanche').css('background-position', '-600px 450px, -300px 300px, -100px 0px');
-        $('#avalanche').data('pos3', 600);
-        $('#avalanche').data('pos2', 300);
-        $('#avalanche').data('pos1', 100);
+        $('#avalanche').css('background-position', '-3600px 450px, -3300px 270px, -3100px 0px');
+        $('#avalanche').data('pos3', 3600);
+        $('#avalanche').data('pos2', 3300);
+        $('#avalanche').data('pos1', 3100);
         var $el = $('#avalanche');
         $el.html('');
         var view = new Ava.View($el, milliS);

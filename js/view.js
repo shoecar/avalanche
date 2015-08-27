@@ -97,10 +97,7 @@
       var pos1 = $('#avalanche').data('pos1') - 9;
       var pos2 = $('#avalanche').data('pos2') - 20;
       var pos3 = $('#avalanche').data('pos3') - 40;
-      if (pos1 < 10) { pos1 = 10; }
-      if (pos2 < 100) { pos2 = 100; }
-      if (pos3 < 200) { pos3 = 200; }
-      $('#avalanche').css('background-position', '-' + pos3 + 'px 450px, -' + pos2 + 'px 300px, -' + pos1 + 'px 0px');
+      $('#avalanche').css('background-position', '-' + pos3 + 'px 450px, -' + pos2 + 'px 270px, -' + pos1 + 'px 0px');
       $('#avalanche').data('pos1', pos1);
       $('#avalanche').data('pos2', pos2);
       $('#avalanche').data('pos3', pos3);
@@ -108,10 +105,7 @@
       var pos1 = $('#avalanche').data('pos1') + 9;
       var pos2 = $('#avalanche').data('pos2') + 20;
       var pos3 = $('#avalanche').data('pos3') + 40;
-      if (pos1 > 172) { pos1 = 172; }
-      if (pos2 > 460) { pos2 = 460; }
-      if (pos3 > 920) { pos3 = 920; }
-      $('#avalanche').css('background-position', '-' + pos3 + 'px 450px, -' + pos2 + 'px 300px, -' + pos1 + 'px 0px')
+      $('#avalanche').css('background-position', '-' + pos3 + 'px 450px, -' + pos2 + 'px 270px, -' + pos1 + 'px 0px')
       $('#avalanche').data('pos1', pos1);
       $('#avalanche').data('pos2', pos2);
       $('#avalanche').data('pos3', pos3);
