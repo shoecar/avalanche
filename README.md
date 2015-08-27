@@ -2,6 +2,7 @@
 Control a skier in his attempt to escape endless waves of snowballs!
 
 <a href="http://shoecar.github.io/avalanche">
+  Play Avalanche<br>
   <img src="images/example.gif" width="300">
 </a>
 
