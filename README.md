@@ -18,3 +18,7 @@ Control a skier in his attempt to escape endless waves of snowballs!
 - New wave of snowballs initialized every 10th time iteration
 - Snowballs in wave given random speed for wave variation
 - Snowballs classes are updated based on their internal settings
+
+<a href="http://kenney.nl/assets">
+  Assets for this game found at kenney.nl
+<a>
