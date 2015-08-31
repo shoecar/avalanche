@@ -31,6 +31,7 @@
     if (!this.intervalId) {
       this.board.player.alive = true;
       this.$el.find('.paused').remove();
+      this.render();
       this.intervalId = window.setInterval(this.step.bind(this), this.milliS);
     } else {
       if (View.KEYS[event.keyCode]) {
@@ -39,7 +40,8 @@
       } else if (event.keyCode === 32 && this.board.player.alive) {
         window.clearInterval(this.intervalId);
         this.intervalId = null;
-        this.$el.prepend('<div class="paused">Game Paused</div>')
+        this.updateClasses([], 'ice');
+        this.$el.prepend('<div class="paused">Game Paused</div>');
       }
     }
 
@@ -52,8 +54,8 @@
   };
 
   View.prototype.updateClasses = function(collection, className, faceLeft) {
-    this.$cells.filter("." + className).removeClass();
-    faceLeft && this.$cells.filter(".left").removeClass();
+    this.$cells.filter('.' + className).removeClass();
+    faceLeft && this.$cells.filter('.left').removeClass();
 
     collection.forEach(function(model){
       var flatCoord = (model.position.i * this.gridWidth) + model.position.j;
