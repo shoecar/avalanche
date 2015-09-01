@@ -10,6 +10,7 @@ Control a skier in his attempt to escape endless waves of snowballs!
 - Three speed settings for varied difficulty
 - High score tracked by a cookie for each speed setting
 - Parallax background responds to user's movements
+- Pause gameplay
 
 <b>How It Works</b>
 - Internal game engine written in vanilla javascript
