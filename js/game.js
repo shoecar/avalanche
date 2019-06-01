@@ -23,11 +23,11 @@
     return new Coord(i, j);
   };
 
-  var Player = Ava.Player = function (board) {
+  var Player = Ava.Player = function (board, startX) {
     this.faceLeft = true;
     this.alive = true;
     this.board = board;
-    this.position = new Coord(board.gridHeight - 1, Math.floor(board.gridWidth / 2));
+    this.position = new Coord(board.gridHeight - 1, startX ? startX : Math.floor(board.gridWidth / 2));
   };
 
   Player.DIFFS = {
@@ -56,7 +56,10 @@
     this.speed = speed;
     this.iteration = 1;
     this.player = new Player(this);
+    this.players = [];
     this.icicles = [];
+
+    this.addPlayers(PLAYERS_COUNT);
     window.setTimeout(function () {
       this.startWave();
     }.bind(this), 500)
@@ -71,12 +74,21 @@
         if (ice.position.equals(this.player.position)) {
           this.player.alive = false;
         };
+        this.players = this.players.filter(function (player) {
+          return !(ice.position.equals(player.position));
+        });
       }
     }.bind(this));
 
     this.iteration++;
     if (this.iteration % this.waveTime === 0) {
       this.startWave();
+    }
+  };
+
+  Board.prototype.addPlayers = function (playersCount) {
+    for (var i = 0; i < playersCount; i++) {
+      this.players.push(new Ava.Player(this, i));
     }
   };
 

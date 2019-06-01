@@ -49,7 +49,7 @@
 
   View.prototype.render = function () {
     var faceLeft = this.board.player.faceLeft ? 'left' : null;
-    this.updateClasses([this.board.player], 'player', faceLeft);
+    this.updateClasses(this.board.players.concat(this.board.player), 'player', faceLeft);
     this.updateClasses(this.board.icicles, 'ice');
   };
 
@@ -57,7 +57,7 @@
     this.$cells.filter('.' + className).removeClass();
     faceLeft && this.$cells.filter('.left').removeClass();
 
-    collection.forEach(function(model){
+    collection.forEach(function (model) {
       var flatCoord = (model.position.i * this.gridWidth) + model.position.j;
       this.$cells.eq(flatCoord).addClass(className);
       faceLeft && this.$cells.eq(flatCoord).addClass('left');
