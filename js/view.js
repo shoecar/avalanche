@@ -9,15 +9,19 @@
         this.waveTime = ICE_WAVE_TIME;
         this.speed = ICE_SPEED;
         this.round = 0;
-        this.buildGrid();
+        this.players = [];
+        for (var i = 0; i < PLAYERS_COUNT; i++) {
+            this.players.push(new Ava.Player(this, i));
+        }
 
         $(window).bind('keydown', this.handleKeyEvent.bind(this));
         $('#start-round').click(this.startRound.bind(this));
 
         this.scoreCookie = new Ava.Cookie();
 
+        this.buildGrid();
         this.startRound();
-    }
+    };
 
     View.KEYS = {
         37: 'L',
@@ -54,8 +58,10 @@
 
     View.prototype.startRound = function () {
         $('#round-info').text('Round ' + ++this.round);
-        this.board = new Ava.Board(this.gridHeight, this.gridWidth, this.waveTime, this.speed, this.milliS);
         $('#round-over').hide();
+
+        this.board = new Ava.Board(this.gridHeight, this.gridWidth, this.waveTime, this.speed, this.milliS);
+        this.board.setPlayers(this.players.slice());
 
         try {
             this.intervalId = window.setInterval(this.step.bind(this), this.milliS);

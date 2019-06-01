@@ -1,7 +1,6 @@
 (function () {
-    if (typeof Ava === 'undefined') {
-        window.Ava = {};
-    }
+
+    window.Ava = window.Ava || {};
 
     var Coord = Ava.Coord = function (i, j) {
         this.i = i;
@@ -23,13 +22,13 @@
         return new Coord(i, j);
     };
 
-    var Player = Ava.Player = function (board, playerNumber) {
+    var Player = Ava.Player = function (view, playerNumber) {
         this.playerNumber = playerNumber;
-        this.faceLeft = true;
+        this.view = view;
         this.alive = true;
-        this.board = board;
+        this.faceLeft = true;
         this.cycles = 0;
-        this.position = new Coord(board.gridHeight - 1, playerNumber ? playerNumber : Math.floor(board.gridWidth / 2));
+        this.position = new Coord(view.gridHeight - 1, Math.floor(view.gridWidth / 2));
     };
 
     Player.DIFFS = {
@@ -37,15 +36,15 @@
         R: new Coord(0, 1)
     };
 
-    Player.prototype.move = function () {
+    Player.prototype.move = function (board) {
         if (Math.random() < 0.95) {
             return;
         }
         var direction = Math.random() < .5 ? 'L' : 'R';
         this.faceLeft = direction === 'L';
         var tempPos = this.position.plus(Player.DIFFS[direction]);
-        var i = this.board.loopPos(tempPos.i, this.board.gridHeight);
-        var j = this.board.loopPos(tempPos.j, this.board.gridWidth);
+        var i = board.loopPos(tempPos.i, board.gridHeight);
+        var j = board.loopPos(tempPos.j, board.gridWidth);
         this.position = new Coord(i, j);
     };
 
@@ -65,7 +64,6 @@
         this.playerResults = [];
         this.icicles = [];
 
-        this.addPlayers(PLAYERS_COUNT);
         window.setTimeout(function () {
             this.startWave();
         }.bind(this), 500)
@@ -93,7 +91,7 @@
                 this.playerResults.push(player);
                 return false;
             }
-            player.move();
+            player.move(this);
             return true;
         }.bind(this));
 
@@ -102,10 +100,8 @@
         }
     };
 
-    Board.prototype.addPlayers = function (playersCount) {
-        for (var i = 0; i < playersCount; i++) {
-            this.players.push(new Ava.Player(this, i));
-        }
+    Board.prototype.setPlayers = function (players) {
+        this.players = players;
     };
 
     Board.prototype.startWave = function () {
@@ -119,4 +115,5 @@
         if (position >= max) { return 0; }
         return position;
     };
+
 })();
