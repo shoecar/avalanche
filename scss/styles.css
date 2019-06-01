@@ -68,11 +68,16 @@ button:hover { background-color: #829DBA; }
   animation: size_toggle 0.6s infinite alternate ease-out;
 }
 
-#score {
+.grid-info {
   position: absolute;
   font-size: 18px;
-  top: 5px;
   right: 5px;
+}
+#round-info {
+  top: 5px;
+}
+#score-info {
+  top: 25px;
 }
 
 #info {
@@ -119,10 +124,9 @@ hr { background-color: #829DBA; height: 1px; border: none;}
   margin-top: 3px;
 }
 
-#game-over {
+#round-over {
   position: absolute;
   width: 250px;
-  height: 170px;
   top: 50%;
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%);
@@ -138,20 +142,20 @@ hr { background-color: #829DBA; height: 1px; border: none;}
   display: none;
 }
 
-#game-over h1 {
+#round-over h1 {
   margin-top: 15px;
   font-size: 30px;
   text-align: center;
   font-weight: 400;
 }
 
-#final-score {
+#round-score {
   font-size: 14px;
   text-align: center;
   margin: 15px 0;
 }
 
-#game-over button {
+#round-over button {
   margin-left: 52px;
 }
 

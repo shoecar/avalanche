@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="scss/styles.css" media="screen" charset="utf-8">
   </head>
   <body>
-    <div id="game-over">
-      <h1>Game Over</h1>
-      <p id="final-score"></p>
-      <button type="button" class="start-game">Try Again</button>
+    <div id="round-over">
+      <h1>Round Over</h1>
+      <p id="round-score"></p>
+      <button id="start-round" type="button" class="start-game">Next Round</button>
     </div>
 
     <div id="avalanche" data-pos1="100" data-pos2="300" data-pos3="600">
@@ -23,12 +23,12 @@
       <h1>Speed</h1>
       <hr>
       <button type="button" id="play-slow">Slow</button>
-      <button type="button" id="play-medium" class="active">Medium</button>
-      <button type="button" id="play-fast">Fast</button>
+      <button type="button" id="play-medium">Medium</button>
+      <button type="button" id="play-fast" class="active">Fast</button>
 
       <h1>High Score</h1>
       <hr>
-      <p id="high-score" data-score="0">0.00 seconds</p>
+      <p id="high-score" data-score="0">0</p>
 
       <h1>Controls</h1>
       <hr>
@@ -65,7 +65,7 @@
       });
 
       $('.start-game').click(function () {
-        $('#game-over').css('display','');
+        $('#round-over').css('display','');
         $('#avalanche').css('background-position', '-3600px 450px, -3300px 270px, -3100px 0px');
         $('#avalanche').data('pos3', 3600);
         $('#avalanche').data('pos2', 3300);
@@ -75,7 +75,7 @@
         var view = new Ava.View($el, milliS);
       });
 
-      var milliS = 10;
+      var milliS = 5;
 
       $('#play-slow').click(function (e) {
         e.preventDefault();
